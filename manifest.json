@@ -1,0 +1,40 @@
+{    
+    "name": "coupon-plug",  
+    "manifest_version":2,  
+    "version": "2.1",
+    "description": "coupon-plug",    
+    "browser_action": {    
+       "default_icon": "favicon-icon.png" ,  
+       "default_title": "coupon-plug",  
+        "default_popup": "popup.html"  
+     },  
+     "background": {  
+        "scripts":[
+            "js/jquery-1.11.2.min.js",
+	        "background.js"
+	    ],
+	    "persistent":false  
+      },  
+     "content_scripts": [{  
+         "matches": ["<all_urls>"],
+         "css":[
+           "/Zebra_Datepicker-master/public/css/default.css",
+           "/css/style.css"
+         ],
+         "js": [
+           "js/jquery-1.11.2.min.js",
+           "/Zebra_Datepicker-master/public/javascript/zebra_datepicker.js",
+           "/js/clipboard.min.js",
+           "test.js"
+         ],
+         "run_at": "document_start",  
+         "all_frames": true   
+    }],  
+    "web_accessible_resources": [
+      "bootstrap-datetimepicker.min.css",
+      "/Zebra_Datepicker-master/public/javascript/zebra_datepicker.js"
+	],
+    "permissions": [     
+     "tabs", "https://*/*"    
+    ]     
+}
